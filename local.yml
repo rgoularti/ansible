@@ -6,8 +6,9 @@
         update_cache: true
       tags:
         - asdf
+        - core
         - zsh
   tasks:
+    - import_tasks: tasks/core.yml
     - import_tasks: tasks/zsh.yml
     - import_tasks: tasks/asdf.yml
-
