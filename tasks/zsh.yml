@@ -25,3 +25,5 @@
     path: ~/.zshrc
     regexp: 'plugins=\((.*)\)'
     replace: 'plugins=(\1 zsh-autosuggestions)'
+  tags:
+    - zsh

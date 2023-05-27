@@ -11,3 +11,5 @@
     path: ~/.zshrc
     regexp: 'plugins=\((.*)\)'
     replace: 'plugins=(asdf \1)'
+  tags:
+    - asdf
