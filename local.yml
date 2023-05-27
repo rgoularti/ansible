@@ -8,6 +8,6 @@
         - asdf
         - zsh
   tasks:
-    - import_tasks: ansible-tasks/zsh.yml
-    - import_tasks: ansible-tasks/asdf.yml
+    - import_tasks: tasks/zsh.yml
+    - import_tasks: tasks/asdf.yml
 
