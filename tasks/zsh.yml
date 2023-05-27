@@ -14,14 +14,14 @@
     - zsh
 
 - name: Install zsh-autosuggestions plugin
-  ansible.builtin.git:
+  git:
     repo: 'https://github.com/zsh-users/zsh-autosuggestions' 
     dest: '~/.oh-my-zsh/plugins/zsh-autosuggestions'
   tags:
     - zsh
 
 - name: Add zsh-autosuggestions to oh-my-zsh plugins list
-  ansible.builtin.replace:
+  replace:
     path: ~/.zshrc
     regexp: 'plugins=\((.*)\)'
     replace: 'plugins=(\1 zsh-autosuggestions)'
