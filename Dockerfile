@@ -3,7 +3,7 @@ WORKDIR /usr/local/bin
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt update && \
     apt upgrade -y && \
-    apt install -y software-properties-common curl build-essential git sudo && \
+    apt install -y software-properties-common curl build-essential git && \
     apt-add-repository -y ppa:ansible/ansible && \
     apt update && \
     apt install -y ansible && \
@@ -19,4 +19,4 @@ RUN adduser --gecos rgoularti --uid 1000 --gid 1000 --disabled-password rgoulart
 
 FROM development
 COPY . .
-# CMD [ "sh", "-c", "ansible-playbook", $TAGS local.yaml"]
+CMD [ "sh", "-c", "ansible-playbook $TAGS local.yml"]
