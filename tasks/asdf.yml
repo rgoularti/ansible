@@ -1,15 +1,84 @@
 - name: Install asdf tool version manager
-  ansible.builtin.git:
-    repo: "https://github.com/asdf-vm/asdf.git" 
-    version: "v0.11.3"
-    dest: "~/.asdf"
+  git:
+    repo: 'https://github.com/asdf-vm/asdf.git' 
+    version: 'v0.11.3'
+    dest: '~/.asdf'
   tags:
     - asdf
 
 - name: Add asdf to oh-my-zsh plugins list
-  ansible.builtin.replace:
+  replace:
     path: ~/.zshrc
     regexp: 'plugins=\((.*)\)'
     replace: 'plugins=(asdf \1)'
   tags:
     - asdf
+
+- name: Install golang plugin
+  shell: '{{ asdf_executable }} plugin add golang'
+  tags:
+    - asdf
+
+- name: Install helm plugin
+  shell: '{{ asdf_executable }} plugin add helm'
+  tags:
+    - asdf
+
+- name: Install istioctl plugin
+  shell: '{{ asdf_executable }} plugin add istioctl'
+  tags:
+    - asdf
+
+- name: Install k9s plugin
+  shell: '{{ asdf_executable }} plugin add k9s'
+  tags:
+    - asdf
+
+- name: Install neovim plugin
+  shell: '{{ asdf_executable }} plugin add neovim'
+  tags:
+    - asdf
+
+- name: Install nodejs plugin
+  shell: '{{ asdf_executable }} plugin add nodejs'
+  tags:
+    - asdf
+
+- name: Install poetry plugin
+  shell: '{{ asdf_executable }} plugin add poetry'
+  tags:
+    - asdf
+
+- name: Install python plugin
+  shell: '{{ asdf_executable }} plugin add python'
+  tags:
+    - asdf
+
+- name: Install rust plugin
+  shell: '{{ asdf_executable }} plugin add rust'
+  tags:
+    - asdf
+
+- name: Install stern plugin
+  shell: '{{ asdf_executable }} plugin add stern'
+  tags:
+    - asdf
+
+- name: Install terraform plugin
+  shell: '{{ asdf_executable }} plugin add terraform'
+  tags:
+    - asdf
+
+- name: Install tool versions
+  shell: '{{ asdf_executable }} install'
+  tags:
+    - asdf
+    - asdf-tools
+
+- name: Set tool versions globally
+  copy:
+    src: .tool-versions
+    dest: ~/
+  tags:
+    - asdf
+    - asdf-tools

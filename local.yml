@@ -1,11 +1,14 @@
 - hosts: localhost
   become: true
+  vars_files:
+    - vars/asdf.yml
   pre_tasks:
     - name: Update apt cache
       apt:
         update_cache: true
       tags:
         - asdf
+        - asdf-tools
         - core
         - zsh
   tasks:
