@@ -1,0 +1,13 @@
+- hosts: localhost
+  become: true
+  pre_tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: true
+      tags:
+        - asdf
+        - zsh
+  tasks:
+    - import_tasks: ansible-tasks/zsh.yml
+    - import_tasks: ansible-tasks/asdf.yml
+
