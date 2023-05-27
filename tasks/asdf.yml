@@ -1,0 +1,13 @@
+- name: Install asdf tool version manager
+  ansible.builtin.git:
+    repo: "https://github.com/asdf-vm/asdf.git" 
+    version: "v0.11.3"
+    dest: "~/.asdf"
+  tags:
+    - asdf
+
+- name: Add asdf to oh-my-zsh plugins list
+  ansible.builtin.replace:
+    path: ~/.zshrc
+    regexp: 'plugins=\((.*)\)'
+    replace: 'plugins=(asdf \1)'
