@@ -3,11 +3,6 @@
   tags:
     - zsh
 
-- name: Change shell
-  shell: chsh -s `which zsh`
-  tags:
-    - zsh
-
 - name: Install oh-my-zsh
   shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   tags:
