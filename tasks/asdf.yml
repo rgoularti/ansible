@@ -1,7 +1,7 @@
 - name: Install asdf tool version manager
   git:
     repo: 'https://github.com/asdf-vm/asdf.git' 
-    version: 'v0.11.3'
+    version: 'v0.13.1'
     dest: '~/.asdf'
   tags:
     - asdf
@@ -19,33 +19,8 @@
   tags:
     - asdf
 
-- name: Install helm plugin
-  shell: '{{ asdf_executable }} plugin add helm'
-  tags:
-    - asdf
-
-- name: Install istioctl plugin
-  shell: '{{ asdf_executable }} plugin add istioctl'
-  tags:
-    - asdf
-
-- name: Install k9s plugin
-  shell: '{{ asdf_executable }} plugin add k9s'
-  tags:
-    - asdf
-
 - name: Install neovim plugin
   shell: '{{ asdf_executable }} plugin add neovim'
-  tags:
-    - asdf
-
-- name: Install nodejs plugin
-  shell: '{{ asdf_executable }} plugin add nodejs'
-  tags:
-    - asdf
-
-- name: Install poetry plugin
-  shell: '{{ asdf_executable }} plugin add poetry'
   tags:
     - asdf
 
@@ -59,20 +34,9 @@
   tags:
     - asdf
 
-- name: Install stern plugin
-  shell: '{{ asdf_executable }} plugin add stern'
-  tags:
-    - asdf
-
-- name: Install terraform plugin
-  shell: '{{ asdf_executable }} plugin add terraform'
-  tags:
-    - asdf
-
 - name: Install tool versions
   shell: '{{ asdf_executable }} install'
   tags:
-    - asdf
     - asdf-tools
 
 - name: Set tool versions globally
@@ -80,5 +44,4 @@
     src: .tool-versions
     dest: ~/
   tags:
-    - asdf
     - asdf-tools
