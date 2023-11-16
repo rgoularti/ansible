@@ -14,32 +14,32 @@
   tags:
     - asdf
 
-- name: Install golang plugin
+- name: Install asdf golang plugin
   shell: '{{ asdf_executable }} plugin add golang'
   tags:
     - asdf
 
-- name: Install neovim plugin
+- name: Install asdf neovim plugin
   shell: '{{ asdf_executable }} plugin add neovim'
   tags:
     - asdf
 
-- name: Install python plugin
+- name: Install asdf python plugin
   shell: '{{ asdf_executable }} plugin add python'
   tags:
     - asdf
 
-- name: Install rust plugin
+- name: Install asdf rust plugin
   shell: '{{ asdf_executable }} plugin add rust'
   tags:
     - asdf
 
-- name: Install tool versions
+- name: Install asdf tool versions
   shell: '{{ asdf_executable }} install'
   tags:
     - asdf-tools
 
-- name: Set tool versions globally
+- name: Set asdf tool versions globally
   copy:
     src: .tool-versions
     dest: ~/
